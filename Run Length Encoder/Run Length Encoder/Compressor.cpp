@@ -1,12 +1,11 @@
 #include "Compressor.h"
 
-
-std::vector<char> Compressor::vectorCompressor(std::vector<char> uncompressedVector)
+std::string Compressor::vectorCompressor(std::string uncompressedVector)
 {
 	uncompressedVector.push_back(NULL); // Push null to allow end value in vecotr to be accessed
 	char previousVectorValue = uncompressedVector[0]; 
 	int count = 0;
-	std::vector<char> compressedVector;
+	std::string compressedVector;
 
 	for (size_t i = 0; i < uncompressedVector.size(); i++)
 	{
@@ -17,13 +16,15 @@ std::vector<char> Compressor::vectorCompressor(std::vector<char> uncompressedVec
 		}
 		if (uncompressedVector[i] != previousVectorValue)
 		{
-			std::string countString = std::to_string(count); // For char conversion of any sized int
-			std::vector<char> CounterCharValue(countString.begin(), countString.end());
-			for (size_t i = 0; i < CounterCharValue.size(); i++)
+			if (count != 1)
 			{
-				compressedVector.push_back(CounterCharValue[i]);
+				std::string countString = std::to_string(count); // For char conversion of any sized int
+				for (size_t i = 0; i < countString.size(); i++)
+				{
+					compressedVector.push_back(countString[i]);
+				}
 			}
-			compressedVector.push_back(previousVectorValue);
+			compressedVector.push_back(previousVectorValue + 128);
 			count = 1; // Resets Counter for new value
 			previousVectorValue = uncompressedVector[i];
 		}

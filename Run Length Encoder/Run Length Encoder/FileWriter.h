@@ -1,8 +1,11 @@
 #pragma once
+#include <fstream>
+#include <string>
+
 class FileWriter
 {
 public:
-	FileWriter();
-	~FileWriter();
+	void wrieToFile(std::string fileName, std::string textFileVector);
+
 };
 

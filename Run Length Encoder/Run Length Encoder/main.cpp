@@ -1,51 +1,37 @@
+#include "UserInterface.h"
 #include "FileReader.h"
+#include "FileWriter.h"
 #include "CompressionRatio.h"
 #include "Compressor.h"
 #include "Decompressor.h"
 
+UserInterface uI;
 FileReader fR;
+FileWriter fW;
 CompressionRatio cR;
 Compressor c;
 Decompressor dC;
-char pause;
 
 int main()
 {
-	std::vector<char> tempVectorI = fR.vectorSetter();
-	for (size_t i = 0; i < tempVectorI.size(); i++)
+	char pause;
+	std::string uncompressedVector, compressedVector;
+	std::string optionChoice = uI.optionChoice();
+	std::string fileName = fR.fileNameSetter();
+
+	if (optionChoice[0] == '1')
 	{
-		std::cout << tempVectorI[i];
+		uncompressedVector = fR.vectorSetter(fileName);
+		compressedVector = c.vectorCompressor(uncompressedVector);
+		fW.wrieToFile(fileName, compressedVector);
+	}
+	if (optionChoice[0] == '2')
+	{
+		compressedVector = fR.vectorSetter(fileName);
+		uncompressedVector = dC.vectorDecompressor(compressedVector);
+		fW.wrieToFile(fileName, uncompressedVector);
 	}
 
-	std::cout << std::endl;
-
-	std::vector<char> tempVectorJ = c.vectorCompressor(tempVectorI);
-	for (size_t i = 0; i < tempVectorJ.size(); i++)
-	{
-		std::cout << tempVectorJ[i];
-	}
-
-	std::cout << std::endl;
-
-	cR.compressionRatioPrinter(cR.compressionRatioResult(tempVectorI, tempVectorJ));
-
-	std::cout << std::endl;
-
-	std::vector<char> tempVectorK = dC.vectorDecompressor(tempVectorJ);
-	for (size_t i = 0; i < tempVectorK.size(); i++)
-	{
-		std::cout << tempVectorK[i];
-	}
-
+	cR.compressionRatioPrinter(cR.compressionRatioResult(uncompressedVector, compressedVector));
 	std::cin >> pause;
-
-	/*std::cout << std::endl;
-
-	std::vector<char> tempVectorTwo = c.vectorCompressor(tempVector);
-	for (size_t i = 0; i < tempVectorTwo.size(); i++)
-	{
-		std::cout << tempVectorTwo[i];
-	}
-	std::cin >> pause;*/
-
 }
