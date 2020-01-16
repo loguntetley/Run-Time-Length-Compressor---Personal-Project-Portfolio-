@@ -1,8 +1,15 @@
 #pragma once
+#include <vector>
+#include <iostream>
+//#include <string>
+
 class Decompressor
 {
+private:
+
+
 public:
-	Decompressor();
-	~Decompressor();
+	std::vector<char> vectorDecompressor(std::vector<char> compressedVector);
+
 };
 

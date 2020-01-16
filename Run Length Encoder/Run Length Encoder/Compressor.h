@@ -1,8 +1,13 @@
 #pragma once
+#include <vector>
+#include <string>
+
 class Compressor
 {
-public:
-	Compressor();
-	~Compressor();
-};
+private:
 
+
+public:
+	std::vector<char> vectorCompressor(std::vector<char> uncompressedVector);
+
+};

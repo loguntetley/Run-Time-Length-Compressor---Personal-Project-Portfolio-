@@ -1,18 +1,27 @@
 #include "FileReader.h"
 
-void FileReader::fileOpener() { file.open("compress_decompress_1.txt", std::ios::in | std::ios::binary | std::ios::ate); }
+void FileReader::fileOpener() 
+{ 
+	// Ask the user for the file name which they want to open and open it
+	std::string fileName;
+	std::cout << "Enter file name: ";
+	std::cin >> fileName;
+	file.open(fileName);
+}
 
-int FileReader::sizeGetter() { return file.tellg(); }
-
-void FileReader::fileCloser() { file.close(); }
-
-char* FileReader::arraySetter(int arraySize)
+std::vector<char> FileReader::vectorSetter()
 {
-	char* textFile = new char[98];
-	for (size_t i = 0; i < arraySize; i++)
+	std::vector<char> textFileVector;
+	char fileTempPos;
+	
+	fileOpener();
+	while (file.peek() != EOF) // Runs until end of File(EOF)
 	{
-		file.get(textFile[i]);
+		// Push each char in the text file into textFileVector
+		file >> fileTempPos;
+		textFileVector.push_back(fileTempPos);
 	}
+	file.close();
 
-	return textFile;
+	return textFileVector;
 }

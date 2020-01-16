@@ -1,19 +1,17 @@
 #pragma once
 #include <iostream>
-#include <string>
 #include <fstream>
+#include <vector>
+#include <string>
 
 class FileReader
 {
 private:
 	std::ifstream file;
+	void fileOpener();
 	
 public:
-	void fileOpener();
-	int sizeGetter();
-	void fileCloser();
-	char* arraySetter(int arraySize);
-
-
+	std::vector<char> vectorSetter();
+	
 };
 

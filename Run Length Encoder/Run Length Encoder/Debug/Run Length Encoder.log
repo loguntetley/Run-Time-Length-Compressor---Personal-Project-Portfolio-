@@ -1,9 +1,5 @@
-﻿  Compressor.cpp
-  Decompressor.cpp
-  FileReader.cpp
-e:\portfolio\github code previews\run time length compressor\run-time-length-compressor---personal-project-portfolio-\run length encoder\run length encoder\filereader.cpp(5): warning C4244: 'return': conversion from 'std::streamoff' to 'int', possible loss of data
-e:\portfolio\github code previews\run time length compressor\run-time-length-compressor---personal-project-portfolio-\run length encoder\run length encoder\filereader.cpp(12): warning C4018: '<': signed/unsigned mismatch
-  FileWriter.cpp
+﻿  CompressionRatio.cpp
+e:\portfolio\github code previews\run time length compressor\run-time-length-compressor---personal-project-portfolio-\run length encoder\run length encoder\compressionratio.cpp(6): warning C4244: 'return': conversion from 'unsigned int' to 'float', possible loss of data
   main.cpp
   Generating Code...
   Run Length Encoder.vcxproj -> E:\portfolio\GitHub Code Previews\Run Time Length Compressor\Run-Time-Length-Compressor---Personal-Project-Portfolio-\Run Length Encoder\Debug\Run Length Encoder.exe

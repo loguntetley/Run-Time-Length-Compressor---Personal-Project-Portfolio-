@@ -115,12 +115,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CompressionRatio.h" />
     <ClInclude Include="Compressor.h" />
     <ClInclude Include="Decompressor.h" />
     <ClInclude Include="FileReader.h" />
     <ClInclude Include="FileWriter.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CompressionRatio.cpp" />
     <ClCompile Include="Compressor.cpp" />
     <ClCompile Include="Decompressor.cpp" />
     <ClCompile Include="FileReader.cpp" />
