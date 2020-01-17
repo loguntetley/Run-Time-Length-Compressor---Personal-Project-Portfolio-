@@ -5,7 +5,7 @@
 class FileWriter
 {
 public:
-	void wrieToFile(std::string fileName, std::string textFileVector);
+	void wrieToFile(std::string fileName, std::string textFileString);
 
 };
 

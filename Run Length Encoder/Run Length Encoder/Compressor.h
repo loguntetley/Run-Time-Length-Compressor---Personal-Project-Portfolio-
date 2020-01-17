@@ -4,6 +4,6 @@
 class Compressor
 {
 public:
-	std::string vectorCompressor(std::string uncompressedVector);
+	std::string stringCompressor(std::string uncompressedString);
 
 };

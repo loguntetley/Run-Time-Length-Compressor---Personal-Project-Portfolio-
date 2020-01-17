@@ -8,7 +8,7 @@ class CompressionRatio
 private:
 	
 public:
-	float compressionRatioResult(std::string uncompressedVector, std::string compressedVector);
+	float compressionRatioResult(std::string uncompressedString, std::string compressedString);
 	void compressionRatioPrinter(float compressionRatioResult);
 
 };

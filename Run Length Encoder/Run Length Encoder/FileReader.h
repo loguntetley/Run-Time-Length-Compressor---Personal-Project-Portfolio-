@@ -11,7 +11,7 @@ private:
 
 public:
 	std::string fileNameSetter();
-	std::string vectorSetter(std::string fileName);
+	std::string stringSetter(std::string fileName);
 	
 };
 

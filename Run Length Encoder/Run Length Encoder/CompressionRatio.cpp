@@ -1,8 +1,8 @@
 #include "CompressionRatio.h"
 
-float CompressionRatio::compressionRatioResult(std::string uncompressedVector, std::string compressedVector)
+float CompressionRatio::compressionRatioResult(std::string uncompressedString, std::string compressedString)
 {
-	float uncompressedSize = uncompressedVector.size(), compressedSize = compressedVector.size();
+	float uncompressedSize = uncompressedString.size(), compressedSize = compressedString.size();
 	// Formula: Compression Ratio = Uncompressed Size / Compressed Size
 	return uncompressedSize / compressedSize;// Gets the compression ratio
 }

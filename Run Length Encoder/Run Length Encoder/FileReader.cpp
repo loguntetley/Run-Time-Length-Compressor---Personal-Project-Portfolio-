@@ -10,27 +10,27 @@ std::string FileReader::fileNameSetter()
 }
 
 void FileReader::noFile()
-{
+{ // Incase the wrong file name is used
 	if (!inFile.is_open())
 	{
 		exit(EXIT_FAILURE);
 	}
 }
 
-std::string FileReader::vectorSetter(std::string fileName)
+std::string FileReader::stringSetter(std::string fileName)
 {
-	std::string textFileVector;
+	std::string textFileString;
 	char fileTempPos;
 	
 	inFile.open(fileName);
 	noFile();
 	while (inFile.peek() != EOF) // Runs until end of File(EOF)
 	{
-		// Push each char in the text file into textFileVector
+		// Push each char in the text file into textFileString
 		inFile >> std::noskipws >> fileTempPos;
-		textFileVector.push_back(fileTempPos);
+		textFileString.push_back(fileTempPos);
 	}
 	inFile.close();
 
-	return textFileVector;
+	return textFileString;
 }

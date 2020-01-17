@@ -15,23 +15,23 @@ Decompressor dC;
 int main()
 {
 	char pause;
-	std::string uncompressedVector, compressedVector;
+	std::string uncompressedString, compressedString;
 	std::string optionChoice = uI.optionChoice();
 	std::string fileName = fR.fileNameSetter();
 
 	if (optionChoice[0] == '1')
 	{
-		uncompressedVector = fR.vectorSetter(fileName);
-		compressedVector = c.vectorCompressor(uncompressedVector);
-		fW.wrieToFile(fileName, compressedVector);
+		uncompressedString = fR.stringSetter(fileName);
+		compressedString = c.stringCompressor(uncompressedString);
+		fW.wrieToFile(fileName, compressedString);
 	}
 	if (optionChoice[0] == '2')
 	{
-		compressedVector = fR.vectorSetter(fileName);
-		uncompressedVector = dC.vectorDecompressor(compressedVector);
-		fW.wrieToFile(fileName, uncompressedVector);
+		compressedString = fR.stringSetter(fileName);
+		uncompressedString = dC.stringDecompressor(compressedString);
+		fW.wrieToFile(fileName, uncompressedString);
 	}
 
-	cR.compressionRatioPrinter(cR.compressionRatioResult(uncompressedVector, compressedVector));
+	cR.compressionRatioPrinter(cR.compressionRatioResult(uncompressedString, compressedString));
 	std::cin >> pause;
 }

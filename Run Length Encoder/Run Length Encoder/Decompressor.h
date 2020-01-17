@@ -4,7 +4,7 @@
 class Decompressor
 {
 public:
-	std::string vectorDecompressor(std::string compressedVector);
+	std::string stringDecompressor(std::string compressedString);
 
 };
 

@@ -1,14 +1,14 @@
 #include "Decompressor.h"
 
-std::string Decompressor::vectorDecompressor(std::string compressedVector)
+std::string Decompressor::stringDecompressor(std::string compressedString)
 {
-	std::string uncompressedVector, stringAmount;
+	std::string uncompressedString, stringAmount;
 
-	for (size_t i = 0; i < compressedVector.size(); i++)
+	for (size_t i = 0; i < compressedString.size(); i++)
 	{
-		if ((int)compressedVector[i] - 48 > 0 && (int)compressedVector[i] - 48 < 10)// Checks if the value is between 1-9
+		if ((int)compressedString[i] - 48 > 0 && (int)compressedString[i] - 48 < 10)// Checks if the value is between 1-9
 		{
-			stringAmount.push_back(compressedVector[i]); // Pushes char values into a string "12345"
+			stringAmount.push_back(compressedString[i]); // Pushes char values into a string "12345"
 		}
 		else
 		{
@@ -16,11 +16,11 @@ std::string Decompressor::vectorDecompressor(std::string compressedVector)
 			if (amount == 0) { amount = 1; } // Incase only one value is needed, prevents the value being skipped
 			for (size_t j = 0; j < amount; j++)
 			{
-				uncompressedVector.push_back(compressedVector[i] - 128); // Makes the value back into its original value
+				uncompressedString.push_back(compressedString[i] - 128); // Makes the value back into its original value
 			}
 			stringAmount.erase(stringAmount.begin(), stringAmount.end()); // Erases the string
 		}
 	}
 
-	return uncompressedVector;
+	return uncompressedString;
 }
